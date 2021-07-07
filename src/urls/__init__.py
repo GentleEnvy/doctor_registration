@@ -1,1 +1,1 @@
-from _index_url import IndexUrl
+from src.urls._index_url import IndexUrl
