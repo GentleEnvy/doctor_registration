@@ -1,3 +1,2 @@
-from _app import app
-
-__all__ = ['app']
+__import__('src.app')
+__import__('src.urls')

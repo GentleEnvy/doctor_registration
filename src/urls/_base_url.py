@@ -3,7 +3,7 @@ from http import HTTPStatus
 
 from flask import Request, Response, request as flask_request
 
-from src import app
+from src.app import app
 
 __all__ = ['BaseUrl']
 
