@@ -23,21 +23,18 @@ class User(UserMixin, db.Model):
 
 
 class Patient(User, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
     user = db.relationship('User', back_populates='patient')
 
 
 class Doctor(User, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
     user = db.relationship('User', back_populates='doctor')
 
 
 class Admin(User, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
     user = db.relationship('User', back_populates='admin')

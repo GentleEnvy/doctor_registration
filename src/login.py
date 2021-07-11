@@ -7,8 +7,6 @@ from src.models import User
 
 __all__ = ['login']
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 login: Final[LoginManager] = LoginManager(app)
 login.login_view = 'AuthUrl'
 

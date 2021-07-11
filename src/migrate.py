@@ -7,4 +7,4 @@ from src.db import db
 
 __all__ = ['migrate']
 
-migrate: Final[Migrate] = Migrate(app, db)
+migrate: Final[Migrate] = Migrate(app, db, render_as_batch=True)
