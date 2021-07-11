@@ -1,5 +1,5 @@
 from flask import render_template, redirect, Request, Response
-from flask_login import current_user
+from flask_login import current_user, login_user
 
 from src.db import db
 from src.models import User
@@ -20,11 +20,12 @@ class RegisterUrl(BaseUrl):
         username = request.form['username']
         password = request.form['password']
 
-        if User.query.filter_by(username=username):
-            return 'Username already Present'
+        if User.query.filter_by(username=username).first():
+            return 'Username already present'
 
         user = User(username=username)  # FIXME: add __init__
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
-        return redirect('/auth')
+        login_user(user)
+        return redirect('/')

@@ -21,3 +21,4 @@ class AuthUrl(BaseUrl):
         if user is not None and user.check_password(request.form['password']):
             login_user(user)
             return redirect('/')
+        return 'Invalid username or password'
