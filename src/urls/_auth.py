@@ -14,14 +14,11 @@ class AuthUrl(BaseUrl):
         if current_user.is_authenticated:
             return redirect('/')
 
-        if request.method == 'POST':
-            username = request.form['username']
-            user = User.query.filter_by(username=username).first()
-            if user is not None and user.check_password(request.form['password']):
-                login_user(user)
-                return redirect('/')
-
         return Response(render_template('auth.html'))
 
     def post(self, request):
-        pass
+        username = request.form['username']
+        user = User.query.filter_by(username=username).first()
+        if user is not None and user.check_password(request.form['password']):
+            login_user(user)
+            return redirect('/')
