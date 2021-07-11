@@ -1,4 +1,4 @@
-from flask import render_template, Response, redirect
+from flask import render_template, redirect
 from flask_login import current_user, login_user
 
 from src.models import User
@@ -13,8 +13,7 @@ class AuthUrl(BaseUrl):
     def get(self, request):
         if current_user.is_authenticated:
             return redirect('/')
-
-        return Response(render_template('auth.html'))
+        return render_template('auth.html')
 
     def post(self, request):
         username = request.form['username']

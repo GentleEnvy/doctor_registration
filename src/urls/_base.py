@@ -19,7 +19,6 @@ class BaseUrl(ABC):
 
     def get_view(self):
         def view():
-            response: Response
             request: Request = flask_request
             # noinspection PyBroadException
             try:
@@ -40,8 +39,8 @@ class BaseUrl(ABC):
     def url(self) -> str:
         raise NotImplementedError
 
-    def get(self, request: Request) -> Response:
+    def get(self, request: Request):
         return app.make_response('Not supported')
 
-    def post(self, request: Request) -> Response:
+    def post(self, request: Request):
         return app.make_response('Not supported')
