@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from src.db import db
 
-__all__ = ['Patient', 'Doctor', 'Admin']
+__all__ = ['User', 'Patient', 'Doctor', 'Admin']
 
 
 class User(UserMixin, db.Model):
