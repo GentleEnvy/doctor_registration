@@ -13,24 +13,27 @@ class BaseUrl(ABC):
         app.add_url_rule(
             rule=self.url,
             endpoint=self.__class__.__name__,
-            view_func=self._index,
+            view_func=self.get_view(),
             methods=['GET', 'POST']
         )
 
-    def _index(self) -> Response:
-        response: Response
-        request: Request = flask_request
-        # noinspection PyBroadException
-        try:
-            method = request.method.upper()
-            if method == 'GET':
-                response = self.get(request)
-            else:  # POST
-                response = self.post(request)
-        except Exception:
-            response = app.make_response('Error')
-            response.status_code = HTTPStatus.INTERNAL_SERVER_ERROR
-        return response
+    def get_view(self):
+        def view():
+            response: Response
+            request: Request = flask_request
+            # noinspection PyBroadException
+            try:
+                method = request.method.upper()
+                if method == 'GET':
+                    response = self.get(request)
+                else:  # POST
+                    response = self.post(request)
+            except Exception:
+                response = app.make_response('Error')
+                response.status_code = HTTPStatus.INTERNAL_SERVER_ERROR
+            return response
+
+        return view
 
     @property
     @abstractmethod
