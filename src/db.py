@@ -8,7 +8,3 @@ __all__ = ['db']
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../db.sqlite3'
 db: Final[SQLAlchemy] = SQLAlchemy(app)
-
-__import__('src.models')
-
-db.create_all()

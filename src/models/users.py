@@ -3,7 +3,7 @@ from src.db import db
 __all__ = ['Patient', 'Doctor', 'Admin']
 
 
-class _BaseUser:
+class BaseUser:
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
@@ -12,13 +12,13 @@ class _BaseUser:
         return f'<{self.__class__.__name__} ({self.username})>'
 
 
-class Patient(_BaseUser, db.Model):
+class Patient(BaseUser, db.Model):
     pass
 
 
-class Doctor(_BaseUser, db.Model):
+class Doctor(BaseUser, db.Model):
     pass
 
 
-class Admin(_BaseUser, db.Model):
+class Admin(BaseUser, db.Model):
     pass
