@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Доктор Хаус</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style_index.css">
+    <title>Система онлайн записи к врачу</title>
 </head>
 <body>
-
-Index
-<br>
-User: {{ current_user.username }}
-<br>
-<a href="/logout">Logout</a>
-
+<div class="intro">
+<div class="header">
+    <div class="nav_logo">
+        <img src="assets/img/mainicon.svg" class="logo_img">
+        <div class="logo_text"> Какая-то классная клиника</div>
+    </div>
+<nav class="navigation">
+    <div class="container">
+        <ul class="navbar">
+            <li class="nav_item">
+                <a class="nav_link" href="/">Главная</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="specialists.html">Специалисты</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="rec.html">Записаться к врачу</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="signup.html">Зарегистрироваться</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="signin.html">Войти</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="#">Расписание врача</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="#">Админ-панель</a>
+            </li>
+            <hr>
+        </ul>
+    </div>
+</nav>
+</div>
+        <div class="container_info">
+            <div class="info_color">
+            <div class="info_text">
+        Наша классная клиника входит в число лучших частных медицинских центров Какого-то города.<br>
+        Для Вас в клинике работают много докторов медицинских наук, дофигища профессоров медицины,<br>
+        более 100500 кандидатов медицинских наук, более миллиона миллиардов высококвалифицированных специалистов,<br>
+        большинство из которых имеют высшую  УАСЯ квалификационную категорию,<br>
+        а также уникальные специалисты-консультанты лучших стационаров и НИИ Какого-то города.<br>
+        Врачи клиники проходят систематические стажировки в самых крутых странах.<br>
+    </div>
+                <a href="rec.html" class="btn">Записаться на приём</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
