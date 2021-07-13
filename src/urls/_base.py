@@ -28,6 +28,8 @@ class BaseUrl(ABC):
                 else:  # POST
                     response = self.post(request)
             except Exception:
+                if app.debug:
+                    raise
                 response = app.make_response('Error')
                 response.status_code = HTTPStatus.INTERNAL_SERVER_ERROR
             return response

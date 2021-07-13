@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="assets/css/style_admin.css">
+  <link rel="stylesheet" href="../static/css/style_admin.css">
     <title>Админ-панель</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
       <th>ФИО пользователя</th>
       <th>Логин</th>
       <th>Пароль</th>
-      {% if type_of_user="doctor" %}
+      {% if current_user.doctor %}
       <th>Тип пользователя</th>
       <th>Специальность</th>
       <th>Квалификация</th>
@@ -31,7 +31,7 @@
       <td></td>
       <td></td>
       <td></td>
-      {% if type_of_user="doctor" %}
+      {% if current_user.doctor %}
       <td></td>
       <td></td>
       <td></td>
