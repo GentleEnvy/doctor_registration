@@ -1,13 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style_sign.css">
+    <title>Войти</title>
+</head>
+<body>
 <form method="post">
-    <div>
-        Логин: <input type="text" name="username">
+    <div class="container">
+        <h1>Войти</h1>
+        <hr>
+        <label for="log"><b>Логин</b></label>
+        <input type="text" placeholder="Логин" name="username" required>
+
+        <label for="psw"><b>Пароль</b></label>
+        <input type="password" placeholder="Пароль" name="password" required>
+
+<!--            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Запомнить меня-->
+
+        </label>
+        <hr>
+        <button type="submit" class="signbtn">Войти</button>
     </div>
-    <div>
-        Пароль: <input type="text" name="password">
-    </div>
-    <div>
-        <input type="submit" value="Войти">
+
+    <div class="container signin">
+        <p>Еще не зарегистрированы? <a href="/register">Зарегистрироваться</a>.</p>
     </div>
 </form>
-
-<a href="/register">Register</a>
+</body>
+</html>

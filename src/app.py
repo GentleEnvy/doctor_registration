@@ -8,3 +8,4 @@ __all__ = ['app']
 app: Final[Flask] = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+app.debug = True
