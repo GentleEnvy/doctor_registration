@@ -57,3 +57,14 @@ a {
     background-color: #f1f1f1;
     text-align: center;
 }
+.log_exists{
+    border: 1px solid #f82b2b;
+    color: #f82b2b;
+    background: rgba(215, 215, 215, 0.7);
+}
+.log_img{
+    width: 20px;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right: 5px;
+}
