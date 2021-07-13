@@ -1,7 +1,7 @@
 from flask import redirect
 from flask_login import logout_user
 
-from src.urls._base import BaseUrl
+from src.urls.base import BaseUrl
 
 __all__ = ['LogoutUrl']
 

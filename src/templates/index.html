@@ -20,7 +20,7 @@
                     </li>
                     <hr>
                     <li class="nav_item">
-                        <a class="nav_link" href="specialists.html">Специалисты</a>
+                        <a class="nav_link" href="#">Специалисты</a>
                     </li>
                     {% if current_user.is_authenticated %}
                         <hr>
@@ -30,17 +30,17 @@
                         {% if current_user.patient %}
                             <hr>
                             <li class="nav_item">
-                                <a class="nav_link" href="rec.html">Записаться к врачу</a>
+                                <a class="nav_link" href="#">Записаться к врачу</a>
                             </li>
                         {% elif current_user.doctor %}
                             <hr>
                             <li class="nav_item">
-                                <a class="nav_link" href="schedule.html">Расписание врача</a>
+                                <a class="nav_link" href="#">Расписание врача</a>
                             </li>
                         {% elif current_user.admin %}
                             <hr>
                             <li class="nav_item">
-                                <a class="nav_link" href="adminp.html">Админ-панель</a>
+                                <a class="nav_link" href="#">Админ-панель</a>
                             </li>
                         {% endif %}
                         <hr>
@@ -50,7 +50,7 @@
                     {% else %}
                         <hr>
                         <li class="nav_item">
-                            <a class="nav_link" href="/register">Зарегистрироваться</a>
+                            <a class="nav_link" href="/auth">Авторизоваться</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -72,7 +72,9 @@
                 Врачи клиники проходят систематические стажировки в самых крутых
                 странах.<br>
             </div>
-            <a href="rec.html" class="btn">Записаться на приём</a>
+            {% if current_user.is_authenticated %}
+                <a href="rec.html" class="btn">Записаться на приём</a>
+            {% endif %}
         </div>
     </div>
 </div>

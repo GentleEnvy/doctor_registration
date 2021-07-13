@@ -3,7 +3,7 @@ from flask_login import current_user, login_user
 
 from src.db import db
 from src.models import User
-from src.urls._base import BaseUrl
+from src.urls.base import BaseUrl
 
 __all__ = ['RegisterUrl']
 

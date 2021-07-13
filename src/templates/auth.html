@@ -6,6 +6,9 @@
     <title>Войти</title>
 </head>
 <body>
+{% if error_username_or_password %}
+    Неверный логин или пароль {# TODO #}
+{% endif %}
 <form method="post">
     <div class="container">
         <h1>Войти</h1>
