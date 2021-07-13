@@ -21,12 +21,21 @@
         </tr>
         </thead>
         <tbody>
+        {% for item in items %}
         <tr>
-            <td>Иванов</td>
-            <td>Иван</td>
-            <td>Иванович</td>
-            <td>Терапевт</td>
-            <td>Доктор медицинских наук</td>
+            <td>{{surname}}</td>
+            <td>{{name}}</td>
+            <td>{{midname}}</td>
+            <td>{{specialty}}</td>
+            <td>{{qual}}</td>
+        </tr>
+        {% endfor %}
+       <!-- <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td></td>
@@ -97,14 +106,7 @@
             <td></td>
             <td></td>
             <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        </tr>-->
         </tbody>
     </table>
     <a href="rec.html" class="btn">Выбрать дату посещения</a>

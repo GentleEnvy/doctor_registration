@@ -18,6 +18,18 @@
             <li class="nav_item">
                 <a class="nav_link" href="/">Главная</a>
             </li>
+            <li class="nav_item">
+                <a class="nav_link" href="signup.html">Зарегистрироваться</a>
+            </li>
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="signin.html">Войти</a>
+            </li>
+            {% if type_of_user="user" %}
+            <hr>
+            <li class="nav_item">
+                <a class="nav_link" href="#">Личный кабинет</a>
+            </li>
             <hr>
             <li class="nav_item">
                 <a class="nav_link" href="specialists.html">Специалисты</a>
@@ -27,22 +39,27 @@
                 <a class="nav_link" href="rec.html">Записаться к врачу</a>
             </li>
             <hr>
+            {% elseif type_of_user = "doctor" %}
             <li class="nav_item">
-                <a class="nav_link" href="signup.html">Зарегистрироваться</a>
+                <a class="nav_link" href="#">Личный кабинет</a>
+            </li>
+            <li class="nav_item">
+                <a class="nav_link" href="schedule.html">Расписание врача</a>
+            </li>
+            <hr>
+            {% elseif type_of_user = "admin" %}
+            <li class="nav_item">
+                <a class="nav_link" href="#">Личный кабинет</a>
+            </li>
+            <li class="nav_item">
+                <a class="nav_link" href="schedule.html">Расписание врача</a>
             </li>
             <hr>
             <li class="nav_item">
-                <a class="nav_link" href="signin.html">Войти</a>
+                <a class="nav_link" href="adminp.html">Админ-панель</a>
             </li>
             <hr>
-            <li class="nav_item">
-                <a class="nav_link" href="#">Расписание врача</a>
-            </li>
-            <hr>
-            <li class="nav_item">
-                <a class="nav_link" href="#">Админ-панель</a>
-            </li>
-            <hr>
+            {% endif %}
         </ul>
     </div>
 </nav>
