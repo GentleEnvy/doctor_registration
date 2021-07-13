@@ -19,12 +19,12 @@ logger = logging.getLogger('alembic.env')
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
+# target_metadata = mymodel.Base._metadata
 config.set_main_option(
     'sqlalchemy.url',
     str(current_app.extensions['migrate'].db.get_engine().url).replace(
         '%', '%%'))
-target_metadata = current_app.extensions['migrate'].db.metadata
+target_metadata = current_app.extensions['migrate'].db._metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

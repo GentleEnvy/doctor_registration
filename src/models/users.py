@@ -11,9 +11,9 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
-    patient = db.relationship('Patient', uselist=False, back_populates='user')
-    doctor = db.relationship('Doctor', uselist=False, back_populates='user')
-    admin = db.relationship('Admin', uselist=False, back_populates='user')
+    patient = db.relationship('Patient', uselist=False)
+    doctor = db.relationship('Doctor', uselist=False)
+    admin = db.relationship('Admin', uselist=False)
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -25,16 +25,10 @@ class User(UserMixin, db.Model):
 class Patient(User, db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
-    user = db.relationship('User', back_populates='patient')
-
 
 class Doctor(User, db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
-    user = db.relationship('User', back_populates='doctor')
-
 
 class Admin(User, db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
-
-    user = db.relationship('User', back_populates='admin')
