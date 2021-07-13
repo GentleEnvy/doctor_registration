@@ -17,13 +17,14 @@ class RegisterUrl(BaseUrl):
         return render_template('register.html')
 
     def post(self, request):
-        username = request.form['username']
-        password = request.form['password']
+        form = dict(request.form)
+        username = form['username']
+        password = form.pop('password')
 
         if User.query.filter_by(username=username).first():
-            return 'Username already present'
+            return render_template('register.html', error_username=True, **form)
 
-        user = User(username=username)  # FIXME: add __init__
+        user = User(**form)  # FIXME: add __init__
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
