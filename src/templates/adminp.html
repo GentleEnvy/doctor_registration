@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="assets/css/style_admin.css">
+  <link rel="stylesheet" href="static/css/style_admin.css">
     <title>Админ-панель</title>
 </head>
 <body>
@@ -16,13 +16,7 @@
       <th>ФИО пользователя</th>
       <th>Логин</th>
       <th>Пароль</th>
-      {% if type_of_user="doctor" %}
       <th>Тип пользователя</th>
-      <th>Специальность</th>
-      <th>Квалификация</th>
-      {% else %}
-      <th>Тип пользователя</th>
-      {% endif %}
     </tr>
     </thead>
     <tbody>
@@ -31,16 +25,39 @@
       <td></td>
       <td></td>
       <td></td>
-      {% if type_of_user="doctor" %}
       <td></td>
-      <td></td>
-      <td></td>
-      {% else %}
-      <td></td>
-      {% endif %}
-    </tr>
     {% endfor %}
     </tbody>
+    <form action="#" method="post">
+      <div class="container_form">
+        <h1>Регистрация доктора</h1>
+        <label for="surname"><b>Фамилия</b></label>
+        <input type="text" placeholder="Фамилия" name="surname" required>
+        <hr>
+        <label for="name"><b>Имя</b></label>
+        <input type="text" placeholder="Имя" name="name" required>
+        <hr>
+        <label for="mid_name"><b>Отчество(при наличии)</b></label>
+        <input type="text" placeholder="Отчество" name="mid_name">
+        <hr>
+        <label for="passport"><b>Серия и номер паспорта</b></label>
+        <input type="text" placeholder="Серия и номер паспорта" name="passport" pattern="[0-9]{4}\s[0-9]{6}" title="Введите серию и номер паспорта в указанном формате: **** ******" required>
+        <hr>
+        <label for="specialty"><b>Специальность</b></label>
+        <input type="text" placeholder="Специальность" name="specialty">
+        <hr>
+        <label for="qual"><b>Квалификация</b></label>
+        <input type="text" placeholder="Квалификация" name="qual">
+        <hr>
+        <label for="log"><b>Логин</b></label>
+        <input type="text" placeholder="Логин" name="log" required>
+        <hr>
+        <label for="psw"><b>Пароль</b></label>
+        <input type="password" placeholder="Пароль" name="psw" required>
+        <hr>
+        <button type="submit" class="registerbtn">Зарегистрировать</button>
+      </div>
+    </form>
   </table>
 </div>
 </body>
