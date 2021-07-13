@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/css/style_spec.css">
+    <link rel="stylesheet" href="../static/css/style_spec.css">
     <title>Специалисты</title>
 </head>
 <body>
@@ -17,7 +17,6 @@
             <th>Имя</th>
             <th>Отчество</th>
             <th>Специальность</th>
-            <th>Квалификация</th>
         </tr>
         </thead>
         <tbody>
@@ -25,88 +24,10 @@
             <tr>
                 <td>{{ doctor.surname }}</td>
                 <td>{{ doctor.name }}</td>
-                <td>{{ doctor.mid_name }}</td>
-                <td>{{ doctor.specialty }}</td>
-                <td>{{ doctor.qualification }}</td>
+                <td>{{ doctor.mid_name or '' }}</td>
+                <td>{{ doctor.specialty.title }}</td>
             </tr>
         {% endfor %}
-        <!-- <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>
-         <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-         </tr>-->
         </tbody>
     </table>
     <a href="rec.html" class="btn">Выбрать дату посещения</a>
