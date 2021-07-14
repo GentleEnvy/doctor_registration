@@ -16,7 +16,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
 }
 .status{
     display: flex;
@@ -100,6 +100,11 @@ header{
     background-color: #f8dd2b;
     color: #FFFFFF;
 }
+.nav{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
 .btn{
     text-decoration: none;
     font-style: normal;
@@ -120,3 +125,6 @@ header{
 }
 .btn:hover { background: rgba(95,158,160,0.2);}
 .btn:active { background: #5F9EA0FF; }
+.btn:first-child{
+    font-size: 20px;
+}

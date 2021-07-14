@@ -5,10 +5,3 @@ function val_pass(){
         document.getElementbyId('psw').innerHTML='continue';
     }
 }
-function val_log(){
-    if(document.getElementbyId("log")[0].value != document.getElementbyId("#")[0].value){
-        document.getElementbyId('log').innerHTML='continue';
-    }else{
-        document.getElementbyId('log').innerHTML='wrong';
-    }
-}

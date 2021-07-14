@@ -16,7 +16,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
 }
 .table {
     width: 100%;
@@ -58,6 +58,11 @@ header{
 }
 .table tbody tr:active{
     background-color: #4a7b7d;
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
 }
 .btn{
     text-decoration: none;
