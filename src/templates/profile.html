@@ -2,26 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="static/css/style_profile.css">
+    <link rel="stylesheet" href="../static/css/style_profile.css">
     <title>Личный кабинет</title>
 </head>
 <body>
 <header>
-  <div class="title"> Личный кабинет</div>
-  <div class="user_info">
-      <h1>*ФИО пользователя*</h1>
-      Роль
-  </div>
+    <div class="title">Личный кабинет</div>
+    <div class="user_info">
+        <h1>{{ current_user.surname }} {{current_user.name }} {{ current_user.mid_name or '' }}</h1>
+        {% if current_user.patient %}
+            Пациент
+        {% elif current_user.doctor %}
+            Специалист
+        {% elif current_user.admin %}
+            Администратор
+        {% endif %}
+    </div>
 </header>
 <div class="container_profile">
     <div class="profile_info">
-        <img src="profile_img.jpg" class="border">
+        <img src="../static/img/profile_img.jpg" class="border">
         <div class="profile_text">
-        <h1 class="info">ФИО:</h1>
-        
-        <h1 class="info">Специальность: </h1>
-        
-        <h1 class="info">Квалификация: </h1>
+            {% if current_user.doctor %}
+                <h1 class="info">Специальность: {{ current_user.doctor.specialty.title }}</h1>
+            {% endif %}
+            <h1 class="info">Паспорт: {{ current_user.passport }}</h1>
         </div>
     </div>
 </div>
