@@ -12,7 +12,8 @@
         <p>Пожалуйста, заполните эту форму, чтобы создать аккаунт.</p>
         <hr>
         <label for="surname"><b>Фамилия</b></label>
-        <input type="text" placeholder="Фамилия" name="surname" value="{{ surname }}" required>
+        <input type="text" placeholder="Фамилия" name="surname" value="{{ surname }}"
+               required>
 
         <label for="name"><b>Имя</b></label>
         <input type="text" placeholder="Имя" name="name" value="{{ name }}" required>
@@ -21,10 +22,10 @@
         <input type="text" placeholder="Отчество" name="mid_name" value="{{ mid_name }}">
 
         {% if error_username %}
-           <div class="log_exists">
-               <img src="../static/img/icon_err.svg" class="log_img">
-               Этот логин уже используется
-           </div>  {# TODO #}
+            <div class="log_exists">
+                <img src="../static/img/icon_err.svg" class="log_img">
+                Этот логин уже используется
+            </div>
         {% endif %}
         <label for="username"><b>Логин</b></label>
         <input type="text" placeholder="Логин" name="username" required>
