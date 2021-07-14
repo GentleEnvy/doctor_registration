@@ -21,7 +21,10 @@
         <input type="text" placeholder="Отчество" name="mid_name" value="{{ mid_name }}">
 
         {% if error_username %}
-            Этот логин уже используется  {# TODO #}
+           <div class="log_exists">
+               <img src="../static/img/icon_err.svg" class="log_img">
+               Этот логин уже используется
+           </div>  {# TODO #}
         {% endif %}
         <label for="username"><b>Логин</b></label>
         <input type="text" placeholder="Логин" name="username" required>
