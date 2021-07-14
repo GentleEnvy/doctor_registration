@@ -17,20 +17,25 @@
             <th>Имя</th>
             <th>Отчество</th>
             <th>Специальность</th>
+            <th>Квалификация</th>
         </tr>
         </thead>
         <tbody>
-        {% for doctor in doctors %}
-            <tr>
-                <td>{{ doctor.surname }}</td>
-                <td>{{ doctor.name }}</td>
-                <td>{{ doctor.mid_name or '' }}</td>
-                <td>{{ doctor.specialty.title }}</td>
-            </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{surname}}</td>
+            <td>{{name}}</td>
+            <td>{{midname}}</td>
+            <td>{{specialty}}</td>
+            <td>{{qual}}</td>
+        </tr>
         {% endfor %}
         </tbody>
     </table>
+    <div class="nav">
     <a href="#" class="btn">Выбрать дату посещения</a>
+    <a href="#" class="btn">Вернуться на главную</a>
+    </div>
 </div>
 </body>
 </html>
