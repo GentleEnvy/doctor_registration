@@ -32,6 +32,9 @@ class Patient(User, db.Model):
 
 class Doctor(User, db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
+    specialty_id = db.Column(db.ForeignKey('specialty.id'))
+
+    specialty = db.relationship('Specialty', uselist=False)
 
 
 class Admin(User, db.Model):

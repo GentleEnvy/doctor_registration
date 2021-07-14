@@ -2,46 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="../static/css/style_admin.css">
+    <link rel="stylesheet" href="../static/css/style_admin.css">
     <title>Админ-панель</title>
 </head>
 <body>
 <header>
-  Админ-панель
+    Админ-панель
 </header>
 <div class="container_admin">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>ФИО пользователя</th>
-      <th>Логин</th>
-      <th>Пароль</th>
-      {% if current_user.doctor %}
-      <th>Тип пользователя</th>
-      <th>Специальность</th>
-      <th>Квалификация</th>
-      {% else %}
-      <th>Тип пользователя</th>
-      {% endif %}
-    </tr>
-    </thead>
-    <tbody>
-    {% for item in items %}
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      {% if current_user.doctor %}
-      <td></td>
-      <td></td>
-      <td></td>
-      {% else %}
-      <td></td>
-      {% endif %}
-    </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ФИО пользователя</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            {% if current_user.doctor %}
+                <th>Тип пользователя</th>
+                <th>Специальность</th>
+                <th>Квалификация</th>
+            {% else %}
+                <th>Тип пользователя</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                {% if current_user.doctor %}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 <div class="nav">
   <a href="#" class="btn">Вернуться на главную</a>
