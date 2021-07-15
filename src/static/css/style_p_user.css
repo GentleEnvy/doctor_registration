@@ -38,12 +38,24 @@ h1{
     align-items: stretch;
 
 }
+.profile_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 25px;
+
+}
+.border{
+    width: 33.3%;
+    border: 3px solid #263644;
+}
 .info{
     color: #263644;
     padding-top: 7px;
     padding-left: 10px;
     padding-bottom: 0px;
 }
+
 .table {
     width: 100%;
     border: none;
@@ -82,12 +94,7 @@ h1{
 .table tbody tr td:last-child {
     border-radius: 0 8px 8px 0;
 }
-.last{
-    border-radius: 0 8px 8px 0;
-}
-.table thead tr th.last_of_all{
-    background-color: transparent;
-}
+
 .nav{
     display: flex;
     justify-content: space-around;
@@ -111,52 +118,5 @@ h1{
     border-radius: 75px;
     transition: color 0.2s linear;
 }
-.btn_del{
-    text-decoration: none;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 30px;
-    text-align: center;
-    color: #4b555f;
-    width: 147px;
-    height: 30px;
-    display: inline-block;
-    vertical-align: top;
-    border: 2px solid #708090FF;
-    box-sizing: border-box;
-    border-radius: 75px;
-    transition: color 0.2s linear;
-}
-.btn_del:hover { background: rgba(95,158,160,0.2);}
-.btn_del:active { background: rgba(170, 191, 208, 0.74); }
 .btn:hover { background: rgba(95,158,160,0.2);}
 .btn:active { background: #5F9EA0FF; }
-.btn_admin{
-    text-decoration: none;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    color: #4b555f;
-    width: 295px;
-    height: 60px;
-    padding-top: 12px;
-    margin: 15px 0px;
-    display: inline-block;
-    vertical-align: top;
-    border: 2px solid #708090FF;
-    box-sizing: border-box;
-    border-radius: 75px;
-    transition: color 0.2s linear;
-}
-.btn_admin:hover { background: rgba(95,158,160,0.2);}
-.btn_admin:active { background: #5F9EA0FF; }
-.btn_admin:last-child{
-    padding-top: 0px;
-    font-size: 20px;
-}
-.btn_admin:nth-child(5){
-    font-size: 22px;
-}

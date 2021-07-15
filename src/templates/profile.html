@@ -22,118 +22,144 @@
     </div>
 </header>
 <div class="container_profile">
-    <div class="profile_info">
-        <div class="profile_text">
-            {% if current_user.patient %}
-                Записи
-                <table>
-                    <thead>
-                    <tr>
-                        <td>
-                            Специалист
-                        </td>
-                        <td>
-                            Специальность
-                        </td>
-                        <td>
-                            Дата
-                        </td>
-                        <td>
-                            Время
-                        </td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for appointment in current_user.patient.appointment_set %}
-                        <tr>
-                            {% set doctor = appointment.record_time.doctor %}
-                            <td>
-                                {{ doctor.surname }} {{ doctor.name }} {{ doctor.mid_name or '' }}
-                            </td>
-                            <td>
-                                {{ doctor.specialty.title }}
-                            </td>
-                            <td>
-                                {{ appointment.date }}
-                            </td>
-                            <td>
-                                {{ appointment.record_time.start }}-{{ appointment.record_time.end }}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% elif current_user.doctor %}
-                Расписание
-                <table>
-                    <thead>
-                    <tr>
-                        <td>Дата</td>
-                        <td>День недели</td>
-                        <td>Записи</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for i in range(28) %}
-                        {% set now = today + timedelta(i) %}
-                        <tr>
-                            <td>{{ now.strftime('%d.%m.%Y') }}</td>
-                            <td>
-                                {% if now.weekday() == 0 %}
-                                    Понедельник
-                                {% elif now.weekday() == 1 %}
-                                    Вторник
-                                {% elif now.weekday() == 2 %}
-                                    Среда
-                                {% elif now.weekday() == 3 %}
-                                    Четверг
-                                {% elif now.weekday() == 4 %}
-                                    Пятница
-                                {% elif now.weekday() == 5 %}
-                                    Суббота
-                                {% elif now.weekday() == 6 %}
-                                    Воскресенье
-                                {% endif %}
-                            </td>
-                            {% set record_times = RecordTime.query.filter_by(
+    {% if current_user.patient %}
+        <h1 class="info">Записи:</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Специалист</th>
+                <th>Специальность</th>
+                <th>Дата</th>
+                <th>Время</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appointment in current_user.patient.appointment_set %}
+                <tr>
+                    {% set doctor = appointment.record_time.doctor %}
+                    <td>
+                        {{ doctor.surname }} {{ doctor.name }} {{ doctor.mid_name or '' }}
+                    </td>
+                    <td>
+                        {{ doctor.specialty.title }}
+                    </td>
+                    <td>
+                        {{ appointment.date }}
+                    </td>
+                    <td>
+                        {{ appointment.record_time.start }}-{{ appointment.record_time.end }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% elif current_user.doctor %}
+        <h1 class="info">Расписание:</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Дата</td>
+                <td>День недели</td>
+                <td>Записи</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in range(28) %}
+                {% set now = today + timedelta(i) %}
+                <tr>
+                    <td>{{ now.strftime('%d.%m.%Y') }}</td>
+                    <td>
+                        {% if now.weekday() == 0 %}
+                            Понедельник
+                        {% elif now.weekday() == 1 %}
+                            Вторник
+                        {% elif now.weekday() == 2 %}
+                            Среда
+                        {% elif now.weekday() == 3 %}
+                            Четверг
+                        {% elif now.weekday() == 4 %}
+                            Пятница
+                        {% elif now.weekday() == 5 %}
+                            Суббота
+                        {% elif now.weekday() == 6 %}
+                            Воскресенье
+                        {% endif %}
+                    </td>
+                    {% set record_times = RecordTime.query.filter_by(
                                 doctor=current_user.doctor, weekday=now.weekday()
                             ).all() %}
-                            {% if record_times | length > 0 %}
-                                <td>
-                                    <ol>
-                                        {% for record_time in record_times %}
-                                            {% set appointment = record_time.get_appointment(now) %}
-                                            {% if appointment %}
-                                                <li class="busy">
-                                                    <p>
-                                                        {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
-                                                        ({{ appointment.patient.surname }} {{ appointment.patient.name }})
-                                                    </p>
-                                                </li>
-                                            {% else %}
-                                                <li class="free">
-                                                    <p>
-                                                        {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
-                                                    </p>
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ol>
-                                </td>
-                            {% else %}
-                                <td class="off">Выходной</td>
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
-        </div>
-    </div>
+                    {% if record_times | length > 0 %}
+                        <td>
+                            <ol>
+                                {% for record_time in record_times %}
+                                    {% set appointment = record_time.get_appointment(now) %}
+                                    {% if appointment %}
+                                        <li class="busy">
+                                            <p>
+                                                {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
+                                                ({{ appointment.patient.surname }} {{ appointment.patient.name }})
+                                            </p>
+                                        </li>
+                                    {% else %}
+                                        <li class="free">
+                                            <p>
+                                                {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
+                                            </p>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ol>
+                        </td>
+                    {% else %}
+                        <td class="off">Выходной</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% elif current_user.admin %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ФИО пользователя</th>
+                <th>Логин</th>
+                <th>Пароль</th>
+                {% if current_user.doctor %}
+                    <th>Тип пользователя</th>
+                    <th>Специальность</th>
+                    <th>Квалификация</th>
+                {% else %}
+                    <th class="last">Тип пользователя</th>
+                {% endif %}
+                <th class="last_of_all"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    {% if current_user.doctor %}
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                    <td><a href="#" class="btn_del">Удалить запись</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 </div>
 <div class="nav">
     <a href="/" class="btn">Вернуться на главную</a>
     <a href="/doctors" class="btn">Специалисты</a>
+    {% if current_user.admin %}
+        <a href="#" class="btn_admin">Зарегистрировать доктора</a>
+    {% endif %}
     <a href="/logout" class="btn">Выйти из профиля</a>
 </div>
 </body>
