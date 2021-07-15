@@ -7,7 +7,11 @@
 </head>
 <body>
 {% if error_username_or_password %}
-    Неверный логин или пароль {# TODO #}
+
+<div class="log_exists">
+    <img src="../static/img/icon_err.svg" class="log_img">
+    Неверный логин или пароль
+</div> {# TODO #}
 {% endif %}
 <form method="post">
     <div class="container">
