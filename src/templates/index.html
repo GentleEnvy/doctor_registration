@@ -27,17 +27,7 @@
                         <li class="nav_item">
                             <a class="nav_link" href="/profile">Личный кабинет</a>
                         </li>
-                        {% if current_user.patient %}
-                            <hr>
-                            <li class="nav_item">
-                                <a class="nav_link" href="/signup">Записаться к врачу</a>
-                            </li>
-                        {% elif current_user.doctor %}
-                            <hr>
-                            <li class="nav_item">
-                                <a class="nav_link" href="#">Расписание врача</a>
-                            </li>
-                        {% elif current_user.admin %}
+                        {% if current_user.admin %}
                             <hr>
                             <li class="nav_item">
                                 <a class="nav_link" href="/admin">Админ-панель</a>
