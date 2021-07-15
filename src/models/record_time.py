@@ -10,4 +10,7 @@ class RecordTime(db.Model):
     start = db.Column(db.Time, nullable=False)
     end = db.Column(db.Time, nullable=False)
 
-    doctor = db.relationship('Doctor', uselist=False)
+    doctor = db.relationship('Doctor', uselist=False, back_populates='record_times')
+    appointment = db.relationship(
+        'Appointment', uselist=False, back_populates='record_time'
+    )

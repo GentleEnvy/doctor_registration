@@ -35,6 +35,7 @@ class Doctor(User, db.Model):
     specialty_id = db.Column(db.ForeignKey('specialty.id'))
 
     specialty = db.relationship('Specialty', uselist=False)
+    record_times = db.relationship('RecordTime', uselist=True, back_populates='doctor')
 
 
 class Admin(User, db.Model):

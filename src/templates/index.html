@@ -30,7 +30,7 @@
                         {% if current_user.patient %}
                             <hr>
                             <li class="nav_item">
-                                <a class="nav_link" href="#">Записаться к врачу</a>
+                                <a class="nav_link" href="/signup">Записаться к врачу</a>
                             </li>
                         {% elif current_user.doctor %}
                             <hr>
@@ -73,7 +73,7 @@
                 странах.<br>
             </div>
             {% if current_user.is_authenticated %}
-                <a href="rec.html" class="btn">Записаться на приём</a>
+                <a href="/signup" class="btn">Записаться на приём</a>
             {% endif %}
         </div>
     </div>
