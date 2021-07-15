@@ -6,6 +6,8 @@ header{
     width: 100%;
     height: 10%;
     background-color: #708090FF;
+}
+.header_intro{
     font-size: 32px;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -22,6 +24,7 @@ header{
 }
 .container_rec{
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-around;
 }
