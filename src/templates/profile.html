@@ -123,31 +123,24 @@
             <tr>
                 <th>ФИО пользователя</th>
                 <th>Логин</th>
-                <th>Пароль</th>
-                {% if current_user.doctor %}
-                    <th>Тип пользователя</th>
-                    <th>Специальность</th>
-                    <th>Квалификация</th>
-                {% else %}
-                    <th class="last">Тип пользователя</th>
-                {% endif %}
+                <th class="last">Тип пользователя</th>
                 <th class="last_of_all"></th>
             </tr>
             </thead>
             <tbody>
-            {% for item in items %}
+            {% for user in users %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    {% if current_user.doctor %}
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    {% else %}
-                        <td></td>
-                    {% endif %}
-                    <td><a href="#" class="btn_del">Удалить запись</a></td>
+                    <td>{{ user.surname }} {{ user.name }} {{ user.mid_name or '' }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        {% if user.patient %}
+                            Пациент
+                        {% elif user.doctor %}
+                            Специалист
+                        {% elif user.admin %}
+                            Админ
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
