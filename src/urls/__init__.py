@@ -6,6 +6,7 @@ from src.urls._logout import LogoutUrl
 from src.urls._doctors import DoctorsUrl
 from src.urls._profile import ProfileUrl
 from src.urls._signup import SignupUrl
+from src.urls._appointment import AppointmentUrl
 
 IndexUrl()
 AuthUrl()
@@ -15,3 +16,4 @@ DoctorsUrl()
 ProfileUrl()
 AdminUrl()
 SignupUrl()
+AppointmentUrl()

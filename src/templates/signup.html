@@ -24,6 +24,10 @@
             <div class="stat3"></div>
             - Выходной
         </div>
+        <div class="stat">
+            <div class="stat4"></div>
+            - Запись занята Вами
+        </div>
     </div>
     <table class="table">
         <thead>
@@ -62,10 +66,19 @@
                     <td>
                         <ol>
                             {% for record_time in record_times %}
-                                <li class="{{ 'free' if record_time else 'busy' }}">
-                                    <a href="#{{ doctor.id }}">
-                                        {{ record_time.start.strftime('%H:%M') }}-{{
-                                            record_time.end.strftime('%H:%M') }}
+                                <li class="
+                                    {% if record_time.appointment %}
+                                        {% if record_time.appointment.patient.id == current_user.id %}
+                                            vac
+                                        {% else %}
+                                            busy
+                                        {% endif %}
+                                    {% else %}
+                                        free
+                                    {% endif %}
+                                ">
+                                    <a href="/signup/appointment?doctor={{ doctor.id }}&date={{ now.isoformat() }}">
+                                        {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
                                     </a>
                                 </li>
                             {% endfor %}

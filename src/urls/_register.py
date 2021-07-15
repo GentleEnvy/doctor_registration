@@ -24,9 +24,7 @@ class RegisterUrl(BaseUrl):
         if User.query.filter_by(username=username).first():
             return render_template('register.html', error_username=True, **form)
 
-        patient = Patient(
-            **(form | {'passport': int(form['passport'].replace(' ', ''))})
-        )  # FIXME: add __init__
+        patient = Patient(**form)  # FIXME: add __init__
         patient.set_password(password)
         db.session.add(patient)
         db.session.commit()
