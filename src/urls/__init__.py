@@ -7,6 +7,7 @@ from src.urls._doctors import DoctorsUrl
 from src.urls._profile import ProfileUrl
 from src.urls._signup import SignupUrl
 from src.urls._appointment import AppointmentUrl
+from src.urls._register_doc import RegisterDocUrl
 
 IndexUrl()
 AuthUrl()
@@ -17,3 +18,4 @@ ProfileUrl()
 AdminUrl()
 SignupUrl()
 AppointmentUrl()
+RegisterDocUrl()
