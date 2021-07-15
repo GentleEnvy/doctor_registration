@@ -13,27 +13,111 @@
         {% if current_user.patient %}
             Пациент
         {% elif current_user.doctor %}
-            Специалист
+            Специалист<br>
+            Специальность: {{ current_user.doctor.specialty.title }}
         {% elif current_user.admin %}
             Администратор
         {% endif %}
     </div>
 </header>
+{% if current_user.patient %}
 <div class="container_profile">
-    <div class="profile_info">
-        <img src="../static/img/profile_img.jpg" class="border">
-        <div class="profile_text">
-            {% if current_user.doctor %}
-                <h1 class="info">
-                    Специальность: {{ current_user.doctor.specialty.title }}</h1>
-            {% endif %}
-        </div>
-    </div>
+    <h1 class="info">Записи:</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Специалист</th>
+            <th>Специальность</th>
+            <th>Дата</th>
+            <th>Время</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <div class="nav">
     <a href="/" class="btn">Вернуться на главную</a>
     <a href="/signup" class="btn">Записаться к врачу</a>
     <a href="/logout" class="btn">Выйти из профиля</a>
 </div>
+{% elif current_user.doctor %}
+<div class="container_profile">
+    <h1 class="info">Расписание:</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Дата</th>
+            <th>День недели</th>
+            <th>Записи</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="nav">
+    <a href="/" class="btn">Вернуться на главную</a>
+    <a href="/logout" class="btn">Выйти из профиля</a>
+</div>
+{% elif current_user.admin %}
+<div class="container_profile">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ФИО пользователя</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            {% if current_user.doctor %}
+            <th>Тип пользователя</th>
+            <th>Специальность</th>
+            <th>Квалификация</th>
+            {% else %}
+            <th class="last">Тип пользователя</th>
+            {% endif %}
+            <th class="last_of_all"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            {% if current_user.doctor %}
+            <td></td>
+            <td></td>
+            <td></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td> <a href="#" class="btn_del">Удалить запись</a> </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="nav">
+    <a href="#" class="btn_admin">Просмотреть записи</a>
+    <a href="#" class="btn_admin">Посмотреть расписание</a>
+    <a href="#" class="btn_admin">Записать пациента</a>
+    <a href="#" class="btn_admin">Вернуться на главную</a>
+    <a href="#" class="btn_admin">Зарегистрировать доктора</a>
+    <a href="#" class="btn_admin">Переквалифицировать пользователя</a>
+</div>
+{% endif %}
 </body>
 </html>
+
+
