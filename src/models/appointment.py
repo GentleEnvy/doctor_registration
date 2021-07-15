@@ -14,4 +14,6 @@ class Appointment(db.Model):
     record_time = db.relationship(
         'RecordTime', uselist=False, back_populates='appointment_set'
     )
-    patient = db.relationship('Patient', uselist=False, back_populates='appointment_set')
+    patient = db.relationship(
+        'Patient', uselist=False, back_populates='appointment_set'
+    )

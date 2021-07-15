@@ -62,7 +62,7 @@
                 Врачи клиники проходят систематические стажировки в самых крутых
                 странах.<br>
             </div>
-            {% if current_user.is_authenticated %}
+            {% if current_user.patient %}
                 <a href="/signup" class="btn">Записаться на приём</a>
             {% endif %}
         </div>

@@ -17,7 +17,7 @@
             <th>Имя</th>
             <th>Отчество</th>
             <th>Специальность</th>
-            {% if not current_user.doctor %}
+            {% if current_user.patient %}
                 <th>Записаться</th>
             {% endif %}
         </tr>
@@ -29,7 +29,7 @@
                 <td>{{ doctor.name }}</td>
                 <td>{{ doctor.mid_name or '' }}</td>
                 <td>{{ doctor.specialty.title }}</td>
-                {% if not current_user.doctor %}
+                {% if current_user.patient %}
                     <td><a href="/signup?doctor={{ doctor.id }}">Записаться</a></td>
                 {% endif %}
             </tr>

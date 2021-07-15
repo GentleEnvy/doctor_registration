@@ -1,7 +1,7 @@
 function val_pass(){
-    if(document.getElementbyId("psw")[0].value != document.getElementbyId("psw-repeat")[0].value){
-        document.getElementbyId('psw').innerHTML='wrong';
+    if(document.getElementbyId("password")[0].value != document.getElementbyId("psw-repeat")[0].value){
+        document.getElementbyId('password').innerHTML='wrong';
     }else{
-        document.getElementbyId('psw').innerHTML='continue';
+        document.getElementbyId('password').innerHTML='continue';
     }
 }
