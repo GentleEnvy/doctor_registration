@@ -28,6 +28,10 @@ class User(UserMixin, db.Model):
 class Patient(User, db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
+    appointment_set = db.relationship(
+        'Appointment', uselist=True, back_populates='patient'
+    )
+
 
 class Doctor(User, db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
