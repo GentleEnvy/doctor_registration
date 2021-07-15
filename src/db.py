@@ -1,7 +1,7 @@
 from typing import Final
 
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
+from sqlalchemy import MetaData, event
 
 from src.app import app
 
@@ -20,3 +20,4 @@ _metadata = MetaData(naming_convention=_convention)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db: Final[SQLAlchemy] = SQLAlchemy(app, metadata=_metadata)
+event.listen(db.engine, 'connect', lambda c, _: c.execute('pragma foreign_keys=on'))

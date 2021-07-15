@@ -11,6 +11,12 @@ class RecordTime(db.Model):
     end = db.Column(db.Time, nullable=False)
 
     doctor = db.relationship('Doctor', uselist=False, back_populates='record_times')
-    appointment = db.relationship(
-        'Appointment', uselist=False, back_populates='record_time'
+    appointment_set = db.relationship(
+        'Appointment', uselist=True, back_populates='record_time'
     )
+
+    def get_appointment(self, date):
+        for appointment in self.appointment_set:
+            if appointment.date == date:
+                return appointment
+        return None

@@ -102,18 +102,19 @@
                                 <td>
                                     <ol>
                                         {% for record_time in record_times %}
-                                            {% if record_time.appointment %}
+                                            {% set appointment = record_time.get_appointment(now) %}
+                                            {% if appointment %}
                                                 <li class="busy">
                                                     <p>
                                                         {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
-                                                    </p>
-                                                    <p>
-                                                        {{ record_time.appointment.patient.name }}
+                                                        ({{ appointment.patient.surname }} {{ appointment.patient.name }})
                                                     </p>
                                                 </li>
                                             {% else %}
                                                 <li class="free">
-                                                    Выходной
+                                                    <p>
+                                                        {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
+                                                    </p>
                                                 </li>
                                             {% endif %}
                                         {% endfor %}

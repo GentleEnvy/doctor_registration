@@ -66,9 +66,10 @@
                     <td>
                         <ol>
                             {% for record_time in record_times %}
+                                {% set appointment = record_time.get_appointment(now) %}
                                 <li class="
-                                    {% if record_time.appointment %}
-                                        {% if record_time.appointment.patient.id == current_user.id %}
+                                    {% if appointment %}
+                                        {% if appointment.patient.id == current_user.id %}
                                             vac
                                         {% else %}
                                             busy

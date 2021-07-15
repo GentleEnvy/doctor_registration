@@ -14,13 +14,14 @@ class AppointmentUrl(BaseUrl):
     url = '/signup/appointment'
 
     def get(self, request):
-        date = request.args['date']
+        date = python_date.fromisoformat(request.args['date'])
         doctor_id = request.args['doctor']
         appointment = Appointment(
             record_time_id=RecordTime.query.filter_by(
                 doctor_id=Doctor.query.filter_by(id=doctor_id).first().id,
-                weekday=python_date.fromisoformat(date).weekday()
+                weekday=date.weekday()
             ).first().id,
+            date=date,
             patient_id=current_user.id
         )
         db.session.add(appointment)

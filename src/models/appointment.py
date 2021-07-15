@@ -12,6 +12,6 @@ class Appointment(db.Model):
     patient_id = db.Column(db.ForeignKey(Patient.id), nullable=False)
 
     record_time = db.relationship(
-        'RecordTime', uselist=False, back_populates='appointment'
+        'RecordTime', uselist=False, back_populates='appointment_set'
     )
     patient = db.relationship('Patient', uselist=False, back_populates='appointment_set')
