@@ -62,6 +62,12 @@ a {
     color: #f82b2b;
     background: rgba(215, 215, 215, 0.7);
 }
+.pass_confirm{
+    color: #f82b2b;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 2px;
+}
 .log_img{
     width: 20px;
     margin-top: 5px;
