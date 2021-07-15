@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/style_sign.css">
+    <title>Зарегистрировать доктора</title>
+</head>
+<body>
+<form action="#" method="post">
+  <div class="container">
+    <h1>Зарегистрировать доктора</h1>
+    <p>Пожалуйста, заполните эту форму, чтобы зарегистрировать доктора в системе.</p>
+    <hr>
+    <label for="surname"><b>Фамилия</b></label>
+    <input type="text" placeholder="Фамилия" name="surname" value="{{ surname }}"
+           required>
+
+    <label for="name"><b>Имя</b></label>
+    <input type="text" placeholder="Имя" name="name" value="{{ name }}" required>
+
+    <label for="mid_name"><b>Отчество(при наличии)</b></label>
+    <input type="text" placeholder="Отчество" name="mid_name" value="{{ mid_name }}">
+    <label for="specialty"><b>Специальность</b></label>
+    <input type="text" placeholder="Специальность" name="specialty" value="#">
+    {% if error_username %}
+    <div class="log_exists">
+      <img src="../static/img/icon_err.svg" class="log_img">
+      Этот логин уже используется
+    </div>
+    {% endif %}
+    <label for="username"><b>Логин</b></label>
+    <input type="text" placeholder="Логин" name="username" required>
+
+    <label for="password"><b>Пароль</b></label>
+    <input type="password" placeholder="Пароль" class="password" required>
+
+    <label for="psw-repeat"><b>Повторите пароль</b></label>
+    <input type="password" placeholder="Повторите пароль"  class="psw-repeat" required>
+    <p id="msg" class="pass_confirm"></p>
+    <hr>
+    <button type="submit" class="registerbtn">Зарегистрировать доктора</button>
+  </div>
+</form>
+<script>
+  document.querySelector('.registerbtn').onclick = function val_pass(){
+    var password = document.querySelector(".password").value,
+            confirmPassword = document.querySelector(".psw-repeat").value;
+    if(password == ""){
+      document.getElementById("msg").innerHTML = "Поле с пароллем не может быть пустым.";
+    }
+    else if(password != confirmPassword){
+      document.getElementById("msg").innerHTML = "Пароли должны совпадать.";
+      return false
+    }
+    else if(password == confirmPassword){
+      return true;
+    }
+  }
+</script>
+</body>
+</html>

@@ -10,8 +10,8 @@
     Записаться к врачу
 </header>
 <div class="container_rec">
+    <div class="doc_name">{{ doctor.surname }} {{ doctor.name }} {{ doctor.mid_name or '' }}</div>
     <div class="status">
-        {{ doctor.surname }} {{ doctor.name }} {{ doctor.mid_name or '' }}
         <div class="stat">
             <div class="stat1"></div>
             - Запись свободна
@@ -32,9 +32,9 @@
     <table class="table">
         <thead>
         <tr>
-            <td>Дата</td>
-            <td>День недели</td>
-            <td>Запись</td>
+            <th width="15%">Дата</th>
+            <th width="20%">День недели</th>
+            <th width="60%">Запись</th>
         </tr>
         </thead>
         <tbody>
