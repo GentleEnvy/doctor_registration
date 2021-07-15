@@ -1,4 +1,5 @@
 from typing import Final
+import os
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData, event
@@ -17,7 +18,9 @@ _convention = {
 
 _metadata = MetaData(naming_convention=_convention)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../db.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL'].replace(
+    'postgres', 'postgresql'
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db: Final[SQLAlchemy] = SQLAlchemy(app, metadata=_metadata)
 # event.listen(db.engine, 'connect', lambda c, _: c.execute('pragma foreign_keys=on'))
