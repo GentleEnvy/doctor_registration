@@ -7,5 +7,5 @@ __all__ = ['app']
 
 app: Final[Flask] = Flask(__name__)
 
-app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-app.debug = True
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or '__secret__'
+app.debug = bool(int(os.environ.get('DEBUG') or 0))

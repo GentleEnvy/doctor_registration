@@ -1,4 +1,3 @@
-from src.urls._admin import AdminUrl
 from src.urls._index import IndexUrl
 from src.urls._auth import AuthUrl
 from src.urls._register import RegisterUrl
@@ -15,7 +14,6 @@ RegisterUrl()
 LogoutUrl()
 DoctorsUrl()
 ProfileUrl()
-AdminUrl()
 SignupUrl()
 AppointmentUrl()
 RegisterDocUrl()

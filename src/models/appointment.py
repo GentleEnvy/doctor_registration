@@ -1,5 +1,5 @@
 from src.db import db
-from src.models import Patient, Doctor
+from src.models import Patient
 
 __all__ = ['Appointment']
 

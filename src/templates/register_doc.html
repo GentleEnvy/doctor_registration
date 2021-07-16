@@ -6,7 +6,7 @@
     <title>Зарегистрировать доктора</title>
 </head>
 <body>
-<form action="#" method="post">
+<form method="post">
     <div class="container">
         <h1>Зарегистрировать доктора</h1>
         <p>Пожалуйста, заполните эту форму, чтобы зарегистрировать доктора в системе.</p>
@@ -21,7 +21,8 @@
         <label for="mid_name"><b>Отчество(при наличии)</b></label>
         <input type="text" placeholder="Отчество" name="mid_name" value="{{ mid_name }}">
         <label for="specialty"><b>Специальность</b></label>
-        <input type="text" placeholder="Специальность" name="specialty" value="#">
+        <input type="text" placeholder="Специальность" name="specialty"
+               value="{{ specialty if error_username else '#' }}">
         {% if error_username %}
             <div class="log_exists">
                 <img src="../static/img/icon_err.svg" class="log_img">
@@ -32,7 +33,7 @@
         <input type="text" placeholder="Логин" name="username" required>
 
         <label for="password"><b>Пароль</b></label>
-        <input type="password" placeholder="Пароль" class="password" required>
+        <input type="password" placeholder="Пароль" class="password" name="password" required>
 
         <label for="psw-repeat"><b>Повторите пароль</b></label>
         <input type="password" placeholder="Повторите пароль" class="psw-repeat" required>

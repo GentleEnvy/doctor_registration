@@ -37,7 +37,8 @@ class Patient(User):
     id = db.Column(db.ForeignKey('user.id'), primary_key=True)
 
     appointment_set = db.relationship(
-        'Appointment', uselist=True, back_populates='patient'
+        'Appointment', uselist=True, back_populates='patient',
+        cascade='all, delete-orphan'
     )
 
 

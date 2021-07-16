@@ -22,7 +22,7 @@ class RegisterDocUrl(BaseUrl):
             return render_template('register_doc.html', error_username=True, **form)
 
         specialty = form.pop('specialty')
-        if len(list(Specialty.query.filter_by(title=specialty))) == 0:
+        if (specialty := Specialty.query.filter_by(title=specialty).first()) is None:
             specialty = Specialty(title=specialty)
             db.session.add(specialty)
             db.session.commit()

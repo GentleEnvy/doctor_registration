@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from http import HTTPStatus
 
-from flask import Request, Response, request as flask_request
+from flask import Request, request as flask_request
 
 from src.app import app
 
