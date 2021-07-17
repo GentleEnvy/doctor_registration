@@ -1,4 +1,10 @@
-from src.app import app
+import os
 
-if __name__ == '__main__':
-  app.run(debug=True)
+from flask import Flask
+
+__all__ = ['app']
+
+app = Flask(__name__)
+
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or '__secret__'
+app.debug = bool(int(os.environ.get('DEBUG') or 0))
