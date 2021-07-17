@@ -21,8 +21,8 @@ class RegisterDocUrl(BaseUrl):
         if User.query.filter_by(username=username).first():
             return render_template('register_doc.html', error_username=True, **form)
 
-        specialty = form.pop('specialty')
-        specialty = Specialty.query.filter_by(title=specialty).first()
+        from_specialty = form.pop('specialty')
+        specialty = Specialty.query.filter_by(title=from_specialty).first()
         if specialty is None:
             specialty = Specialty(title=specialty)
             db.session.add(specialty)
