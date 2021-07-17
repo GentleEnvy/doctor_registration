@@ -1,4 +1,3 @@
-from typing import Final
 import os
 
 from flask_sqlalchemy import SQLAlchemy
@@ -22,4 +21,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
     os.environ.get('DATABASE_URL') or 'sqlite:///../db.sqlite3'
 ).replace('postgres', 'postgresql')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db: Final[SQLAlchemy] = SQLAlchemy(app, metadata=_metadata)
+db = SQLAlchemy(app, metadata=_metadata)
