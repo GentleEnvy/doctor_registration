@@ -12,7 +12,8 @@ class SignupUrl(BaseUrl):
     url = '/signup'
 
     def get(self, request):
-        if doctor_id := request.args.get('doctor'):
+        doctor_id = request.args.get('doctor')
+        if doctor_id:
             return render_template(
                 'signup.html',
                 doctor=Doctor.query.filter_by(id=doctor_id).first(),
