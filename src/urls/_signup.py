@@ -20,4 +20,7 @@ class SignupUrl(BaseUrl):
                 today=date.today(), timedelta=timedelta,
                 RecordTime=RecordTime
             )
-        return redirect(self.url + f'?doctor={Doctor.query.first().id}')
+        return redirect(
+            'http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi' + self.url +
+            f'?doctor={Doctor.query.first().id}'
+        )

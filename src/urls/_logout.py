@@ -11,4 +11,4 @@ class LogoutUrl(BaseUrl):
 
     def get(self, request):
         logout_user()
-        return redirect('/')
+        return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi')

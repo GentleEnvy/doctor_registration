@@ -31,4 +31,4 @@ class RegisterDocUrl(BaseUrl):
         doctor.set_password(password)
         db.session.add(doctor)
         db.session.commit()
-        return redirect('/doctors')
+        return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/doctors')

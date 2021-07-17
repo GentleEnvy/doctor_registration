@@ -13,7 +13,7 @@ class RegisterUrl(BaseUrl):
 
     def get(self, request):
         if current_user.is_authenticated:
-            return redirect('/')
+            return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi')
         return render_template('register.html')
 
     def post(self, request):
@@ -29,4 +29,4 @@ class RegisterUrl(BaseUrl):
         db.session.add(patient)
         db.session.commit()
         login_user(patient)
-        return redirect('/')
+        return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi')
