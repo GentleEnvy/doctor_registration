@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/style_sign.css">
+    <link rel="stylesheet" href="src/static/css/style_sign.css">
     <title>Зарегистрироваться</title>
 </head>
 <body>
-<form action="#" method="post">
+<form method="post">
     <div class="container">
         <h1>Зарегистрироваться</h1>
         <p>Пожалуйста, заполните эту форму, чтобы создать аккаунт.</p>
@@ -23,7 +23,7 @@
 
         {% if error_username %}
             <div class="log_exists">
-                <img src="../static/img/icon_err.svg" class="log_img">
+                <img src="src/static/img/icon_err.svg" class="log_img">
                 Этот логин уже используется
             </div>
         {% endif %}
@@ -41,7 +41,7 @@
     </div>
 
     <div class="container signin">
-        <p>Уже зарегестрированы? <a href="/auth">Войти</a>.</p>
+        <p>Уже зарегестрированы? <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/auth">Войти</a>.</p>
     </div>
 </form>
 <script>
