@@ -18,7 +18,8 @@ _convention = {
 _metadata = MetaData(naming_convention=_convention)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get('DATABASE_URL') or 'sqlite:///../db.sqlite3'
+    os.environ.get('DATABASE_URL') or
+    'sqlite:/home/CS/komarov_s_o/public_html/cgi-bin/mydb/db.sqlite3'
 ).replace('postgres', 'postgresql')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app, metadata=_metadata)

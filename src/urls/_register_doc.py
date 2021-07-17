@@ -21,10 +21,10 @@ class RegisterDocUrl(BaseUrl):
         if User.query.filter_by(username=username).first():
             return render_template('register_doc.html', error_username=True, **form)
 
-        from_specialty = form.pop('specialty')
-        specialty = Specialty.query.filter_by(title=from_specialty).first()
+        form_specialty = form.pop('specialty')
+        specialty = Specialty.query.filter_by(title=form_specialty).first()
         if specialty is None:
-            specialty = Specialty(title=from_specialty)
+            specialty = Specialty(title=form_specialty)
             db.session.add(specialty)
             db.session.commit()
         doctor = Doctor(**(form | {'specialty_id': specialty.id}))  # FIXME: add __init__
