@@ -27,10 +27,11 @@ class BaseUrl(ABC):
                     response = self.get(request)
                 else:  # POST
                     response = self.post(request)
-            except SyntaxError:
+            except Exception as e:
+                print(e)
                 if app.debug:
                     raise
-                response = app.make_response('Error')
+                response = app.make_response(str(e))
                 response.status_code = HTTPStatus.INTERNAL_SERVER_ERROR
             return response
 
