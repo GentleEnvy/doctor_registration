@@ -9,32 +9,32 @@
 <div class="intro">
     <div class="header">
         <div class="nav_logo">
-            <img src="../static/img/mainicon.svg" class="logo_img">
+            <img src="src/static/img/mainicon.svg" class="logo_img">
             <div class="logo_text">Hippocrates Inhaero</div>
         </div>
         <nav class="navigation">
             <div class="container">
                 <ul class="navbar">
                     <li class="nav_item">
-                        <a class="nav_link" href="/">Главная</a>
+                        <a class="nav_link" href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/">Главная</a>
                     </li>
                     <hr>
                     <li class="nav_item">
-                        <a class="nav_link" href="/doctors">Специалисты</a>
+                        <a class="nav_link" href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/doctors">Специалисты</a>
                     </li>
                     {% if current_user.is_authenticated %}
                         <hr>
                         <li class="nav_item">
-                            <a class="nav_link" href="/profile">Личный кабинет</a>
+                            <a class="nav_link" href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/profile">Личный кабинет</a>
                         </li>
                         <hr>
                         <li class="nav_item">
-                            <a class="nav_link" href="/logout">Выйти</a>
+                            <a class="nav_link" href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/logout">Выйти</a>
                         </li>
                     {% else %}
                         <hr>
                         <li class="nav_item">
-                            <a class="nav_link" href="/auth">Авторизоваться</a>
+                            <a class="nav_link" href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/auth">Авторизоваться</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -58,7 +58,7 @@
 
             </div>
             {% if current_user.patient %}
-                <a href="/signup" class="btn">Записаться на приём</a>
+                <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/signup" class="btn">Записаться на приём</a>
             {% endif %}
         </div>
     </div>
