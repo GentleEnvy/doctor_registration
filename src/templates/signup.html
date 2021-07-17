@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="src/static/css/style_rec.css">
+    <link rel="stylesheet" href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/src/static/css/style_rec.css">
     <title>Записаться к врачу</title>
 </head>
 <body>
@@ -80,7 +80,7 @@
                                         free
                                     {% endif %}
                                 ">
-                                    <a href="/signup/appointment?doctor={{ doctor.id }}&date={{ now.isoformat() }}">
+                                    <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/signup/appointment?doctor={{ doctor.id }}&date={{ now.isoformat() }}">
                                         {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
                                     </a>
                                 </li>
