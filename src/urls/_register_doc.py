@@ -24,7 +24,7 @@ class RegisterDocUrl(BaseUrl):
         from_specialty = form.pop('specialty')
         specialty = Specialty.query.filter_by(title=from_specialty).first()
         if specialty is None:
-            specialty = Specialty(title=specialty)
+            specialty = Specialty(title=from_specialty)
             db.session.add(specialty)
             db.session.commit()
         doctor = Doctor(**(form | {'specialty_id': specialty.id}))  # FIXME: add __init__
