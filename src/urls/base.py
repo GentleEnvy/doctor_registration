@@ -27,7 +27,7 @@ class BaseUrl(ABC):
                     response = self.get(request)
                 else:  # POST
                     response = self.post(request)
-            except Exception:
+            except SyntaxError:
                 if app.debug:
                     raise
                 response = app.make_response('Error')
