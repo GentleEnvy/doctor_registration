@@ -27,7 +27,8 @@ class RegisterDocUrl(BaseUrl):
             specialty = Specialty(title=form_specialty)
             db.session.add(specialty)
             db.session.commit()
-        doctor = Doctor(**(form | {'specialty_id': specialty.id}))  # FIXME: add __init__
+        form['specialty_id'] = specialty.id
+        doctor = Doctor(**form)
         doctor.set_password(password)
         db.session.add(doctor)
         db.session.commit()
