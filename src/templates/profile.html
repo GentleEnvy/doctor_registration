@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/src/css/style_profile.css') }}">
+    <link rel="stylesheet" href="/src/css/style_profile.css">
     <title>Личный кабинет</title>
 </head>
 <body>
@@ -149,12 +149,12 @@
     {% endif %}
 </div>
 <div class="nav">
-    <a href="/" class="btn">Вернуться на главную</a>
-    <a href="/doctors" class="btn">Специалисты</a>
+    <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/" class="btn">Вернуться на главную</a>
+    <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/doctors" class="btn">Специалисты</a>
     {% if current_user.admin %}
-        <a href="/register_doc" class="btn">Зарегистрировать доктора</a>
+        <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/register_doc" class="btn">Зарегистрировать доктора</a>
     {% endif %}
-    <a href="/logout" class="btn">Выйти из профиля</a>
+    <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/logout" class="btn">Выйти из профиля</a>
 </div>
 </body>
 </html>
