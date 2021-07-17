@@ -26,4 +26,5 @@ class AppointmentUrl(BaseUrl):
         )
         db.session.add(appointment)
         db.session.commit()
-        return redirect('/profile')
+        return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi'
+                        '/profile')

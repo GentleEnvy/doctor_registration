@@ -12,7 +12,7 @@ class AuthUrl(BaseUrl):
 
     def get(self, request):
         if current_user.is_authenticated:
-            return redirect('/')
+            return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi')
         return render_template('auth.html')
 
     def post(self, request):
@@ -20,5 +20,5 @@ class AuthUrl(BaseUrl):
         user = User.query.filter_by(username=username).first()
         if user is not None and user.check_password(request.form['password']):
             login_user(user)
-            return redirect('/')
+            return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi')
         return render_template('auth.html', error_username_or_password=True)
