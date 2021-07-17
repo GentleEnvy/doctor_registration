@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/style_spec.css">
+    <link rel="stylesheet" href="src/static/css/style_spec.css">
     <title>Специалисты</title>
 </head>
 <body>
@@ -30,14 +30,14 @@
                 <td>{{ doctor.mid_name or '' }}</td>
                 <td>{{ doctor.specialty.title }}</td>
                 {% if current_user.patient %}
-                    <td><a href="/signup?doctor={{ doctor.id }}">Записаться</a></td>
+                    <td><a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/signup?doctor={{ doctor.id }}">Записаться</a></td>
                 {% endif %}
             </tr>
         {% endfor %}
         </tbody>
     </table>
     <div class="nav">
-        <a href="/" class="btn">Вернуться на главную</a>
+        <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/" class="btn">Вернуться на главную</a>
     </div>
 </div>
 </body>
