@@ -34,7 +34,7 @@ class RegisterDocUrl(BaseUrl):
         doctor.set_password(password)
         db.session.add(doctor)
         db.session.commit()
-        for i in range(7):
+        for i in range(6):
             for h in range(8, 16):
                 rt = RecordTime(doctor=doctor, weekday=i, start=time(h), end=time(h + 1))
                 db.session.add(rt)
