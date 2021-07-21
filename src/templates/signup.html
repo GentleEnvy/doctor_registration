@@ -80,9 +80,17 @@
                                         free
                                     {% endif %}
                                 ">
-                        <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/signup/appointment?doctor={{ doctor.id }}&date={{ now.isoformat() }}&start={{ record_time.start.isoformat() }}">
+                        {% if appointment %}
+                            <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/signup/appointment?doctor={{ doctor.id }}&date={{ now.isoformat() }}&start={{ record_time.start.isoformat() }}">
+                        {% else %}
+                            <p>
+                        {% endif %}
                             {{ record_time.start.strftime('%H:%M') }}-{{ record_time.end.strftime('%H:%M') }}
-                        </a>
+                        {% if appointment %}
+                            </a>
+                        {% else %}
+                            </p>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ol>
