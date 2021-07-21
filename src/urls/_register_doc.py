@@ -1,9 +1,11 @@
+from datetime import time
+
 from flask import render_template
 from flask_login import current_user, login_user
 from werkzeug.utils import redirect
 
 from src.db import db
-from src.models import User, Doctor, Specialty
+from src.models import User, Doctor, Specialty, RecordTime
 from src.urls.base import BaseUrl
 
 
@@ -32,4 +34,11 @@ class RegisterDocUrl(BaseUrl):
         doctor.set_password(password)
         db.session.add(doctor)
         db.session.commit()
-        return redirect('http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/doctors')
+        for i in range(7):
+            for h in range(8, 16):
+                rt = RecordTime(doctor=doctor, weekday=i, start=time(h), end=time(h + 1))
+                db.session.add(rt)
+                db.session.commit()
+        return redirect(
+            'http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/doctors'
+        )
