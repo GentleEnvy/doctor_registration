@@ -1,9 +1,9 @@
-from datetime import date, timedelta
+from flask import redirect
 
-from flask import render_template, redirect
+from flask import redirect
 
 from src.db import db
-from src.models import Doctor, RecordTime, Patient
+from src.models import Patient
 from src.urls.base import BaseUrl
 
 __all__ = ['DeletePatientUrl']
@@ -17,6 +17,9 @@ class DeletePatientUrl(BaseUrl):
         if patient_id:
             try:
                 patient = Patient.query.filter_by(id=patient_id).first()
+                for appointment in patient.appointment_set:
+                    db.session.delete(appointment)
+                    db.session.commit()
                 db.session.delete(patient)
                 db.session.commit()
             except Exception:

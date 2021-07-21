@@ -8,6 +8,7 @@ from src.urls._signup import SignupUrl
 from src.urls._appointment import AppointmentUrl
 from src.urls._register_doc import RegisterDocUrl
 from src.urls._delete_patient import DeletePatientUrl
+from src.urls._delete_appointment import DeleteAppointmentUrl
 
 IndexUrl()
 AuthUrl()
@@ -19,3 +20,4 @@ SignupUrl()
 AppointmentUrl()
 RegisterDocUrl()
 DeletePatientUrl()
+DeleteAppointmentUrl()

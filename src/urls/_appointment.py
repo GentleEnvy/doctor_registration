@@ -1,4 +1,5 @@
 from datetime import date as python_date
+from datetime import time as python_time
 
 from werkzeug.utils import redirect
 from flask_login import current_user
@@ -14,10 +15,12 @@ class AppointmentUrl(BaseUrl):
     url = '/signup/appointment'
 
     def get(self, request):
+        start = python_time.fromisoformat(request.args['start'])
         date = python_date.fromisoformat(request.args['date'])
         doctor_id = request.args['doctor']
         appointment = Appointment(
             record_time_id=RecordTime.query.filter_by(
+                start=start,
                 doctor_id=Doctor.query.filter_by(id=doctor_id).first().id,
                 weekday=date.weekday()
             ).first().id,
