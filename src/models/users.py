@@ -12,7 +12,7 @@ class User(UserMixin, db.Model):
     surname = db.Column(db.String(100), nullable=False)
     mid_name = db.Column(db.String(100), nullable=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(1000), nullable=False)
 
     @property
     def patient(self):

@@ -29,7 +29,7 @@ def upgrade():
     sa.Column('surname', sa.String(length=100), nullable=False),
     sa.Column('mid_name', sa.String(length=100), nullable=True),
     sa.Column('username', sa.String(length=100), nullable=False),
-    sa.Column('password', sa.String(length=100), nullable=False),
+    sa.Column('password', sa.String(length=1000), nullable=False),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_user')),
     sa.UniqueConstraint('username', name=op.f('uq_user_username'))
     )
