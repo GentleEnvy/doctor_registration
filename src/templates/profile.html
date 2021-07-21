@@ -49,6 +49,12 @@
                     <td>
                         {{ appointment.record_time.start }}-{{ appointment.record_time.end }}
                     </td>
+                    <td>
+                        <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/delete_appointment?id={{ appointment.id }}"
+                           class="btn_del">
+                            Отменить запись
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
