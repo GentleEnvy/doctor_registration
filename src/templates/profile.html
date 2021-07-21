@@ -142,6 +142,14 @@
                             Админ
                         {% endif %}
                     </td>
+                    {% if user.patient %}
+                        <td>
+                            <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/delete_patient?id={{ user.id }}"
+                               class="btn_del">
+                                Удалить пациента
+                            </a>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -149,10 +157,11 @@
     {% endif %}
 </div>
 <div class="nav">
-    <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/" class="btn">Вернуться на главную</a>
+    <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi" class="btn">Вернуться на главную</a>
     <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/doctors" class="btn">Специалисты</a>
     {% if current_user.admin %}
-        <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/register_doc" class="btn">Зарегистрировать доктора</a>
+        <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/register_doc" class="btn">Зарегистрировать
+            доктора</a>
     {% endif %}
     <a href="http://www2.cs.vsu.ru/~komarov_s_o/cgi-bin/mydb/mydb.cgi/logout" class="btn">Выйти из профиля</a>
 </div>
